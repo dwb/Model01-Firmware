@@ -48,7 +48,7 @@
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 
 // Support for an LED mode that lights up the keys as you press them
-#include "Kaleidoscope-LED-Stalker.h"
+/* #include "Kaleidoscope-LED-Stalker.h" */
 
 // Support for an LED mode that prints the keys you press in letters 4px high
 /* #include "Kaleidoscope-LED-AlphaSquare.h" */
@@ -135,7 +135,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
    Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Backspace, Key_LeftShift, Key_LeftGui,
+   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(FUNCTION),
 
    Key_F19,  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
@@ -171,8 +171,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
    Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
-                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,              Key_RightArrow,  ___,              ___,
-   ___,          Consumer_Mute,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,             Key_Backslash,    Key_Pipe,
+                               Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,  Key_RightArrow,  ___,  Consumer_Mute,
+   ___,          Consumer_VolumeDecrement, Consumer_VolumeIncrement, LSHIFT(Key_9), LSHIFT(Key_0), Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
    ___)
 
@@ -303,7 +303,7 @@ void setup() {
 
     // The stalker effect lights up the keys you've pressed recently
     // and is on at startup
-    &StalkerEffect,
+    /* &StalkerEffect, */
 
     // The rainbow effect changes the color of all of the keyboard's keys at the same time
     // running through all the colors of the rainbow.
@@ -360,7 +360,7 @@ void setup() {
   // The LED Stalker mode has a few effects. The one we like is
   // called 'BlazingTrail'. For details on other options,
   // see https://github.com/keyboardio/Kaleidoscope-LED-Stalker
-  StalkerEffect.variant = STALKER(BlazingTrail);
+  /* StalkerEffect.variant = STALKER(BlazingTrail); */
 
   // We want the keyboard to be able to wake the host up from suspend.
   HostPowerManagement.enableWakeup();
