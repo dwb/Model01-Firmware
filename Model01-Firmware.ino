@@ -128,7 +128,7 @@ enum { QWERTY, NUMPAD, FUNCTION }; // layers
  */
 // *INDENT-OFF*
 
-const Key keymaps[][ROWS][COLS] PROGMEM = {
+KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
   (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
@@ -156,7 +156,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
    M(MACRO_VERSION_INFO),  ___, Key_Keypad7, Key_Keypad8,   Key_Keypad9,        Key_KeypadSubtract, ___,
    ___,                    ___, Key_Keypad4, Key_Keypad5,   Key_Keypad6,        Key_KeypadAdd,      ___,
-                           ___, Key_Keypad1, Key_Keypad2,   Key_Keypad3,        Key_Equals,         Key_Quote,
+                           ___, Key_Keypad1, Key_Keypad2,   Key_Keypad3,        Key_Equals,         ___,
    ___,                    ___, Key_Keypad0, Key_KeypadDot, Key_KeypadMultiply, Key_KeypadDivide,   Key_Enter,
    ___, ___, ___, ___,
    ___),
@@ -176,7 +176,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___, ___, Key_Enter, ___,
    ___)
 
-};
+	) // KEYMAPS(
 
 /* Re-enable astyle's indent enforcement */
 // *INDENT-ON*
@@ -350,7 +350,7 @@ void setup() {
   NumPad.numPadLayer = NUMPAD;
 
   // We configure the AlphaSquare effect to use RED letters
-  /* AlphaSquare.color = { 255, 0, 0 }; */
+  /* AlphaSquare.color = CRGB(255, 0, 0); */
 
   // We set the brightness of the rainbow effects to 150 (on a scale of 0-255)
   // This draws more than 500mA, but looks much nicer than a dimmer effect
