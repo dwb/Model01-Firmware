@@ -29,7 +29,7 @@
 #include "Kaleidoscope-NumPad.h"
 
 // Support for an "LED off mode"
-#include "LED-Off.h"
+// #include "LED-Off.h"
 
 // Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
 // when the keyboard is connected to a computer (or that computer is powered on)
@@ -54,8 +54,6 @@
 /* #include "Kaleidoscope-LED-AlphaSquare.h" */
 
 // Support for Keyboardio's internal keyboard testing mode
-#include "Kaleidoscope-Model01-TestMode.h"
-
 // Support for host power management (suspend & wakeup)
 #include "Kaleidoscope-HostPowerManagement.h"
 
@@ -201,13 +199,11 @@ static void versionInfoMacro(uint8_t keyState) {
  *
  */
 
-static void anyKeyMacro(uint8_t keyState) {
-  static Key lastKey;
-  if (keyToggledOn(keyState))
-    lastKey.keyCode = Key_A.keyCode + (uint8_t)(millis() % 36);
-
-  if (keyIsPressed(keyState))
-    kaleidoscope::hid::pressKey(lastKey);
+static void anyKeyMacro(KeyEvent &event) {
+  if (keyToggledOn(event.state)) {
+    event.key.setKeyCode(Key_A.getKeyCode() + (uint8_t)(millis() % 36));
+    event.key.setFlags(0);
+  }
 }
 
 
@@ -223,20 +219,19 @@ static void anyKeyMacro(uint8_t keyState) {
 
  */
 
-const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  switch (macroIndex) {
+const macro_t *macroAction(uint8_t macro_id, KeyEvent &event) {
+  switch (macro_id) {
 
   case MACRO_VERSION_INFO:
-    versionInfoMacro(keyState);
+    versionInfoMacro(event.state);
     break;
 
   case MACRO_ANY:
-    anyKeyMacro(keyState);
+    anyKeyMacro(event);
     break;
   }
   return MACRO_NONE;
 }
-
 
 
 // These 'solid' color effect definitions define a rainbow of
@@ -258,13 +253,10 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 void toggleLedsOnSuspendResume(kaleidoscope::HostPowerManagement::Event event) {
   switch (event) {
   case kaleidoscope::HostPowerManagement::Suspend:
-    LEDControl.paused = true;
-    LEDControl.set_all_leds_to({0, 0, 0});
-    LEDControl.syncLeds();
+    LEDControl.disable();
     break;
   case kaleidoscope::HostPowerManagement::Resume:
-    LEDControl.paused = false;
-    LEDControl.refreshAll();
+    LEDControl.enable();
     break;
   case kaleidoscope::HostPowerManagement::Sleep:
     break;
@@ -285,9 +277,6 @@ void hostPowerManagementEventHandler(kaleidoscope::HostPowerManagement::Event ev
 KALEIDOSCOPE_INIT_PLUGINS(
   // The boot greeting effect pulses the LED button for 10 seconds after the keyboard is first connected
   BootGreetingEffect,
-
-  // The hardware test mode, which can be invoked by tapping Prog, LED and the left Fn button at the same time.
-  // TestMode,
 
   // LEDControl provides support for other LED modes
   LEDControl,
