@@ -26,7 +26,7 @@
 #include "Kaleidoscope-LEDControl.h"
 
 // Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
-#include "Kaleidoscope-NumPad.h"
+// #include "Kaleidoscope-NumPad.h"
 
 // Support for an "LED off mode"
 // #include "LED-Off.h"
@@ -119,7 +119,7 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { QWERTY, NUMPAD, FUNCTION }; // layers
+enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -129,50 +129,64 @@ enum { QWERTY, NUMPAD, FUNCTION }; // layers
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
-  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Tab,
-   Key_PageUp,   Key_A, Key_S, Key_D, Key_F, Key_G,
-   Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
-   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
-   ShiftToLayer(FUNCTION),
+  (___,          Key_F1, Key_F2,        Key_F3,      Key_F4,        Key_F5, Key_LEDEffectNext,
+   Key_Backtick,         Key_Q,         Key_W,       Key_E,         Key_R,  Key_T,             Key_Tab,
+   Key_PageUp,           Key_A,         Key_S,       Key_D,         Key_F,  Key_G,
+   Key_PageDown,         Key_Z,         Key_X,       Key_C,         Key_V,  Key_B,             Key_Escape,
+   Key_LeftControl,      Key_Backspace, Key_LeftGui, Key_LeftShift,
+   ShiftToLayer(NUMBERS),
 
-   Key_F19,  Key_6, Key_7, Key_8,     Key_9,         Key_0,         LockLayer(NUMPAD),
-   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Equals,
+   Key_F19,  Key_F6, Key_F7, Key_F8,     Key_F9,         Key_F10,         ___,
+   Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,         Key_P,         Key_Minus,
                   Key_H, Key_J, Key_K,     Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt, Key_N, Key_M, Key_Comma, Key_Period,    Key_Slash,     Key_Minus,
    Key_LeftAlt, Key_RightShift, Key_Spacebar, Key_RightControl,
-   ShiftToLayer(FUNCTION)),
+   ShiftToLayer(OTHERCOMMON)),
 
+  [NUMBERS] =  KEYMAP_STACKED
+  (XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
+   XXX, XXX,      Key_PageUp,   XXX,     XXX, XXX, XXX,
+   XXX, Key_Home, Key_PageDown, Key_End, XXX, XXX,
+   XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
+   XXX, XXX,      XXX,          XXX,
+   XXX,
 
-  [NUMPAD] =  KEYMAP_STACKED
-  (___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___, ___, ___, ___,
-   ___, ___, ___, ___,
-   ___,
+   M(MACRO_VERSION_INFO),  XXX, XXX, XXX,   XXX,        XXX, ___,
+   ___,                    Key_Backtick, Key_7, Key_8, Key_9, Key_Minus,    XXX,
+                           XXX,          Key_4, Key_5, Key_6, Key_Equals, XXX,
+   ___,                    XXX,          Key_1, Key_2, Key_3, Key_Backslash, XXX,
+   ___,                         ___,   ___,   Key_0,
+   ShiftToLayer(FKEYS)),
 
-   M(MACRO_VERSION_INFO),  ___, Key_Keypad7, Key_Keypad8,   Key_Keypad9,        Key_KeypadSubtract, ___,
-   ___,                    ___, Key_Keypad4, Key_Keypad5,   Key_Keypad6,        Key_KeypadAdd,      ___,
-                           ___, Key_Keypad1, Key_Keypad2,   Key_Keypad3,        Key_Equals,         ___,
-   ___,                    ___, Key_Keypad0, Key_KeypadDot, Key_KeypadMultiply, Key_KeypadDivide,   Key_Enter,
-   ___, ___, ___, ___,
-   ___),
-
-  [FUNCTION] =  KEYMAP_STACKED
-  (___,      Key_F1,           Key_F2,      Key_F3,     Key_F4,        Key_F5,           XXX,
-   Key_Tab,  ___,              Key_mouseUp, Key_Enter,  Key_mouseBtnR, Key_mouseWarpEnd, Key_mouseWarpNE,
-   Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR, Key_mouseBtnL, Key_mouseWarpNW,
-   Key_End,  Key_PrintScreen,  Key_Insert,  Key_Spacebar, Key_mouseBtnM, Key_mouseWarpSW,  Key_mouseWarpSE,
+  [OTHERCOMMON] =  KEYMAP_STACKED
+  (XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
+   XXX, XXX,      Key_PageUp,   XXX,     XXX, XXX, XXX,
+   XXX, Key_Home, Key_PageDown, Key_End, XXX, XXX,
+   XXX,  Key_PrintScreen,  Key_Insert,  Key_Spacebar, XXX, XXX,  XXX,
    ___, Key_Delete, ___, ___,
-   ___,
+   ShiftToLayer(FKEYS),
 
-   Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                   Key_F9,          Key_F10,          Key_F11,
+   Consumer_ScanPreviousTrack, XXX,                 XXX,                   XXX,                   XXX,          XXX,          XXX,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,    Key_LeftBracket, Key_RightBracket, Key_F12,
                                Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,  Key_RightArrow,  ___,  Consumer_Mute,
    ___, Consumer_VolumeDecrement, Consumer_VolumeIncrement, LSHIFT(Key_9), LSHIFT(Key_0), Key_Backslash,    Key_Pipe,
    ___, ___, Key_Enter, ___,
-   ___)
+   XXX),
+
+  [FKEYS] =  KEYMAP_STACKED
+  (XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
+   XXX, XXX,      Key_PageUp,   XXX,     XXX, XXX, XXX,
+   XXX, Key_Home, Key_PageDown, Key_End, XXX, XXX,
+   XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
+   XXX, XXX,      XXX,          XXX,
+   XXX,
+
+   M(MACRO_VERSION_INFO),  XXX, XXX, XXX, XXX,     XXX, XXX,
+   XXX,                    Consumer_VolumeIncrement, Key_F7, Key_F8, Key_F9,     Key_F12, XXX,
+                           Consumer_VolumeDecrement, Key_F4, Key_F5, Key_F6,     Key_F11, XXX,
+   XXX,                    XXX,                      Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
+   ___,                         ___,   ___,   ___,
+   XXX)
 
 	) // KEYMAPS(
 
@@ -294,7 +308,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
-  NumPad,
+  // NumPad,
 
   // The macros plugin adds support for macros
   Macros,
@@ -317,7 +331,7 @@ void setup() {
 
   // While we hope to improve this in the future, the NumPad plugin
   // needs to be explicitly told which keymap layer is your numpad layer
-  NumPad.numPadLayer = NUMPAD;
+  //NumPad.numPadLayer = NUMPAD;
 
   // We configure the AlphaSquare effect to use RED letters
   /* AlphaSquare.color = CRGB(255, 0, 0); */
