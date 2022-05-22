@@ -123,7 +123,6 @@ enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS }; // layers
  */
 // *INDENT-OFF*
 
-
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
@@ -145,14 +144,14 @@ KEYMAPS(
   (XXX, HYPER(Key_1), HYPER(Key_2), HYPER(Key_3),                  HYPER(Key_4),                   XXX, XXX,
    Consumer_VolumeIncrement, XXX,          Key_PageUp,   XXX,                           LSHIFT(Key_Spacebar),           XXX, Key_Backtick,
    Consumer_VolumeDecrement, Key_Home,     Key_PageDown, Key_End,                       Key_Spacebar,                   XXX,
-   Consumer_PlaySlashPause, XXX,          XXX,          LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
+   Consumer_PlaySlashPause, Consumer_ScanPreviousTrack,  Consumer_ScanNextTrack,        LSHIFT(LGUI(Key_LeftBracket)),  LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
    ___, ___,          ___,          ___,
    XXX,
 
    M(MACRO_VERSION_INFO),       XXX,          XXX,   XXX,   XXX,        XXX,           ___,
    ___,                         Key_Backtick, Key_7, Key_8, Key_9,      Key_Minus,     XXX,
                            XXX, Key_4,        Key_5, Key_6, Key_Equals, XXX,
-   ___,                         RALT(LSHIFT(Key_3)),          Key_1, Key_2, Key_3,      Key_Backslash, XXX,
+   ___,                         RALT(Key_3),  Key_1, Key_2, Key_3,      Key_Backslash, Key_Pipe,
    ___,                         ___,          ___,   Key_0,
    ShiftToLayer(FKEYS)),
 
@@ -164,11 +163,11 @@ KEYMAPS(
    ___, Key_Delete,      ___,          ___,
    ShiftToLayer(FKEYS),
 
-   Consumer_ScanPreviousTrack, XXX,                      HYPER(Key_5),             HYPER(Key_6),          HYPER(Key_7),    HYPER(Key_8),     XXX,
-   Consumer_PlaySlashPause,    Consumer_ScanNextTrack,   Key_LeftBracket,     Key_RightBracket, Key_LeftParen, Key_RightParen, Key_F12,
-                               Key_LeftArrow,            Key_DownArrow,         Key_UpArrow,     Key_RightArrow,   ___,             Consumer_Mute,
-   ___,                        Consumer_VolumeDecrement, LSHIFT(Key_9),         LSHIFT(Key_0),   Consumer_VolumeIncrement, Key_Backslash,    Key_Pipe,
-   ___,                        ___,                      Key_Enter,                ___,
+   Consumer_VolumeIncrement, XXX,                      HYPER(Key_5),             HYPER(Key_6),          HYPER(Key_7),    HYPER(Key_8),     XXX,
+   Consumer_VolumeDecrement, XXX,                      Key_LeftBracket,     Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
+                             Key_LeftArrow,            Key_DownArrow,         Key_UpArrow,     Key_RightArrow,   XXX,        XXX,
+   Consumer_PlaySlashPause,  ___,   LSHIFT(Key_9),         LSHIFT(Key_0),   XXX, ___,    ___,
+   ___,                        ___,                    Key_Enter,                ___,
    XXX),
 
   [FKEYS] =  KEYMAP_STACKED
@@ -347,7 +346,9 @@ void setup() {
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
   // with USB devices
-  LEDOff.activate();
+  // LEDOff.activate();
+
+  LEDRainbowWaveEffect.activate();
 
   MouseKeys.accelDelay = 100; // ms
 }
