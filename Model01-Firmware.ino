@@ -126,32 +126,32 @@ enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS }; // layers
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
-  (___,          Key_F1, Key_F2,        Key_F3,      Key_F4,        Key_F5, Key_LEDEffectNext,
-   Key_Backtick,         Key_Q,         Key_W,       Key_E,         Key_R,  Key_T,             Key_Tab,
-   Key_PageUp,           Key_A,         Key_S,       Key_D,         Key_F,  Key_G,
-   Key_PageDown,         Key_Z,         Key_X,       Key_C,         Key_V,  Key_B,             Key_Escape,
-   Key_LeftControl,      Key_Backspace, Key_LeftGui, Key_LeftShift,
+  (___,             Key_F1,        Key_F2,      Key_F3,        Key_F4, Key_F5, Key_LEDEffectNext,
+   Key_Tab,         Key_Q,         Key_W,       Key_E,         Key_R,  Key_T,  Key_Tab,
+   Key_PageUp,      Key_A,         Key_S,       Key_D,         Key_F,  Key_G,
+   Key_PageDown,    Key_Z,         Key_X,       Key_C,         Key_V,  Key_B,  Key_Escape,
+   Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(NUMBERS),
 
-   Key_F19,                    Key_F6,         Key_F7,       Key_F8,           Key_F9,        Key_F10,   ___,
-   Key_Enter,                  Key_Y,          Key_U,        Key_I,            Key_O,         Key_P,     Key_Minus,
-                  Key_H,       Key_J,          Key_K,        Key_L,            Key_Semicolon, Key_Quote,
-   Key_RightAlt,               Key_N,          Key_M,        Key_Comma,        Key_Period,    Key_Slash, Key_Minus,
+   Key_F19,                    Key_F6,         Key_F7,       Key_F8,           Key_F9,        Key_F10,       Key_F20,
+   Key_Enter,                  Key_Y,          Key_U,        Key_I,            Key_O,         Key_P,         Key_Minus,
+                               Key_H,          Key_J,        Key_K,            Key_L,         Key_Semicolon, Key_Quote,
+   Key_RightAlt,               Key_N,          Key_M,        Key_Comma,        Key_Period,    Key_Slash,     Key_Backslash,
    Key_LeftAlt,                Key_RightShift, Key_Spacebar, Key_RightControl,
    ShiftToLayer(OTHERCOMMON)),
 
   [NUMBERS] =  KEYMAP_STACKED
-  (XXX, HYPER(Key_1), HYPER(Key_2), HYPER(Key_3),                  HYPER(Key_4),                   XXX, XXX,
-   Consumer_VolumeIncrement, XXX,          Key_PageUp,   XXX,                           Key_Enter,           XXX, Key_Backtick,
-   Consumer_VolumeDecrement, Key_Home,     Key_PageDown, Key_End,                       Key_Spacebar,                   XXX,
-   Consumer_PlaySlashPause, Consumer_ScanPreviousTrack,  Consumer_ScanNextTrack,        LSHIFT(LGUI(Key_LeftBracket)),  LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
-   ___, ___,          ___,          ___,
+  (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   XXX, XXX,
+   Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX, Key_Backtick,
+   Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   XXX,
+   Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
+   ___,                      ___,                        ___,                    ___,
    XXX,
 
    M(MACRO_VERSION_INFO),       XXX,          XXX,   XXX,   XXX,        XXX,           ___,
    ___,                         Key_Backtick, Key_7, Key_8, Key_9,      Key_Minus,     XXX,
                            XXX, Key_4,        Key_5, Key_6, Key_Equals, XXX,
-   ___,                         RALT(Key_3),  Key_1, Key_2, Key_3,      Key_Backslash, Key_Pipe,
+   ___,                         RALT(Key_3),  Key_1, Key_2, Key_3,      Key_Period, XXX,
    ___,                         ___,          ___,   Key_0,
    ShiftToLayer(FKEYS)),
 
@@ -163,26 +163,26 @@ KEYMAPS(
    ___, Key_Delete,      ___,          ___,
    ShiftToLayer(FKEYS),
 
-   Consumer_VolumeIncrement, XXX,                      HYPER(Key_5),             HYPER(Key_6),          HYPER(Key_7),    HYPER(Key_8),     XXX,
-   Consumer_VolumeDecrement, XXX,                      Key_LeftBracket,     Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
-                             Key_LeftArrow,            Key_DownArrow,         Key_UpArrow,     Key_RightArrow,   XXX,        XXX,
-   Consumer_PlaySlashPause,  ___,   LSHIFT(Key_9),         LSHIFT(Key_0),   XXX, ___,    ___,
-   ___,                        ___,                    Key_Enter,                ___,
+   Consumer_VolumeIncrement,                XXX,           HYPER(Key_5),    HYPER(Key_6),     HYPER(Key_7),  HYPER(Key_8),   XXX,
+   Consumer_VolumeDecrement,                XXX,           Key_LeftBracket, Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
+                             Key_LeftArrow, Key_DownArrow, Key_UpArrow,     Key_RightArrow,   XXX,           XXX,
+   Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           XXX,            XXX,
+   ___,                                     ___,           Key_Enter,       ___,
    XXX),
 
   [FKEYS] =  KEYMAP_STACKED
-  (XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
-   XXX, XXX,      Key_PageUp,   XXX,     XXX, XXX, XXX,
-   XXX, Key_Home, Key_PageDown, Key_End, XXX, XXX,
-   XXX, XXX,      XXX,          XXX,     XXX, XXX, XXX,
-   XXX, XXX,      XXX,          XXX,
+  (XXX,     XXX,      XXX,          XXX,     XXX,     XXX,     XXX,
+   XXX,     XXX,      Key_PageUp,   XXX,     XXX,     XXX,     XXX,
+   XXX,     Key_Home, Key_PageDown, Key_End, XXX,     XXX,
+   Key_F13, Key_F14,  Key_F15,      Key_F16, Key_F17, Key_F18, XXX,
+   ___, ___,      XXX,          ___,
    XXX,
 
    M(MACRO_VERSION_INFO),  XXX, XXX, XXX, XXX,     XXX, XXX,
    XXX,                    Consumer_VolumeIncrement, Key_F7, Key_F8, Key_F9,     Key_F12, XXX,
                            Consumer_VolumeDecrement, Key_F4, Key_F5, Key_F6,     Key_F11, XXX,
    XXX,                    XXX,                      Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
-   ___,                         ___,   ___,   ___,
+   ___,                         ___,   XXX,   Key_RightControl,
    XXX)
 
 	) // KEYMAPS(
