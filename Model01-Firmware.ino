@@ -133,7 +133,7 @@ KEYMAPS(
    Key_LeftControl, Key_Backspace, Key_LeftGui, Key_LeftShift,
    ShiftToLayer(NUMBERS),
 
-   Key_F19,                    Key_F6,         Key_F7,       Key_F8,           Key_F9,        Key_F10,       Key_F20,
+   Key_F19,                    Key_F6,         Key_F7,       Key_F8,           Key_F9,        Key_F10,       LGUI(Key_H),
    Key_Enter,                  Key_Y,          Key_U,        Key_I,            Key_O,         Key_P,         Key_Minus,
                                Key_H,          Key_J,        Key_K,            Key_L,         Key_Semicolon, Key_Quote,
    Key_RightAlt,               Key_N,          Key_M,        Key_Comma,        Key_Period,    Key_Slash,     Key_Backslash,
@@ -141,15 +141,15 @@ KEYMAPS(
    ShiftToLayer(OTHERCOMMON)),
 
   [NUMBERS] =  KEYMAP_STACKED
-  (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   XXX, XXX,
-   Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX, Key_Backtick,
+  (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), LGUI(Key_H),
+   Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          LALT(LGUI(Key_H)),
    Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   XXX,
    Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
    ___,                      ___,                        ___,                    ___,
    XXX,
 
    M(MACRO_VERSION_INFO),       XXX,          XXX,   XXX,   XXX,        XXX,           ___,
-   ___,                         Key_Backtick, Key_7, Key_8, Key_9,      Key_Minus,     XXX,
+   ___,                         Key_Backtick, Key_7, Key_8, Key_9,      XXX,           Key_Minus,
                            XXX, Key_4,        Key_5, Key_6, Key_Equals, XXX,
    ___,                         RALT(Key_3),  Key_1, Key_2, Key_3,      Key_Period, XXX,
    ___,                         ___,          ___,   Key_0,
@@ -157,13 +157,13 @@ KEYMAPS(
 
   [OTHERCOMMON] =  KEYMAP_STACKED
   (XXX, XXX,             XXX,          XXX,          XXX, XXX, XXX,
-   XXX, XXX,             Key_PageUp,   XXX,          XXX, XXX, XXX,
+   XXX, XXX,             Key_PageUp,   Key_Enter,    XXX, XXX, XXX,
    XXX, Key_Home,        Key_PageDown, Key_End,      XXX, XXX,
    XXX, Key_PrintScreen, Key_Insert,   Key_Spacebar, XXX, XXX, XXX,
    ___, Key_Delete,      ___,          ___,
    ShiftToLayer(FKEYS),
 
-   Consumer_VolumeIncrement,                XXX,           HYPER(Key_5),    HYPER(Key_6),     HYPER(Key_7),  HYPER(Key_8),   XXX,
+   Consumer_VolumeIncrement,                HYPER(Key_6),    HYPER(Key_7),     HYPER(Key_8),  HYPER(Key_9),   HYPER(Key_0),  XXX,
    Consumer_VolumeDecrement,                XXX,           Key_LeftBracket, Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
                              Key_LeftArrow, Key_DownArrow, Key_UpArrow,     Key_RightArrow,   XXX,           XXX,
    Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           XXX,            XXX,
