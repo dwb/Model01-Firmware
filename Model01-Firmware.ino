@@ -142,7 +142,7 @@ KEYMAPS(
 
   [NUMBERS] =  KEYMAP_STACKED
   (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), LGUI(Key_H),
-   Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          LALT(LGUI(Key_H)),
+   Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          Key_Backtick,
    Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   XXX,
    Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
    ___,                      ___,                        ___,                    ___,
