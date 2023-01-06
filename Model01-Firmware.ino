@@ -116,7 +116,7 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS }; // layers
+enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS, NUMPAD }; // layers
 
 /* This comment temporarily turns off astyle's indent enforcement
  *   so we can make the keymaps actually resemble the physical key layout better
@@ -143,7 +143,7 @@ KEYMAPS(
   [NUMBERS] =  KEYMAP_STACKED
   (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), LGUI(Key_H),
    Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          Key_Backtick,
-   Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   XXX,
+   Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   ShiftToLayer(NUMPAD),
    Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
    ___,                      ___,                        ___,                    ___,
    XXX,
@@ -183,6 +183,21 @@ KEYMAPS(
                            Consumer_VolumeDecrement, Key_F4, Key_F5, Key_F6,     Key_F11, XXX,
    XXX,                    XXX,                      Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
    ___,                         ___,   XXX,   Key_RightControl,
+   XXX),
+
+  [NUMPAD] =  KEYMAP_STACKED
+  (XXX,                      XXX,               XXX,           XXX,                  XXX,                   XXX, XXX,
+   XXX, XXX,                        XXX,             XXX,                           XXX,                      XXX,          XXX,
+   XXX, XXX,                   XXX,           XXX,                       XXX,                   XXX,
+   XXX,  XXX, XXX, XXX, XXX, XXX, XXX,
+   XXX,                      XXX,                        XXX,                    XXX,
+   XXX,
+
+   XXX,                     XXX, XXX,         Key_KeypadDivide, Key_KeypadMultiply, Key_KeypadSubtract, XXX,
+   XXX,                     XXX, Key_Keypad7, Key_Keypad8,      Key_Keypad9,        Key_KeypadAdd,      XXX,
+                            XXX, Key_Keypad4, Key_Keypad5,      Key_Keypad6,        Key_KeypadEnter,    XXX,
+   XXX,                     XXX, Key_Keypad1, Key_Keypad2,      Key_Keypad3,        Key_KeypadDot,      XXX,
+   XXX,                     XXX, XXX,   Key_Keypad0,
    XXX)
 
 	) // KEYMAPS(
