@@ -123,6 +123,9 @@ enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS, NUMPAD }; // layers
  */
 // *INDENT-OFF*
 
+
+// Keycodes list here:
+// https://github.com/keyboardio/Kaleidoscope/blob/master/src/kaleidoscope/key_defs/keyboard.h
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
