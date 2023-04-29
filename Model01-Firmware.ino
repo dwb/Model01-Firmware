@@ -193,14 +193,14 @@ KEYMAPS(
    XXX, XXX,                        XXX,             XXX,                           XXX,                      XXX,          XXX,
    XXX, XXX,                   XXX,           XXX,                       XXX,                   XXX,
    XXX,  XXX, XXX, XXX, XXX, XXX, XXX,
-   XXX,                      XXX,                        XXX,                    XXX,
+   ___,                      ___,                        ___,                    ___,
    XXX,
 
    XXX,                     XXX, XXX,         Key_KeypadDivide, Key_KeypadMultiply, Key_KeypadSubtract, XXX,
    XXX,                     XXX, Key_Keypad7, Key_Keypad8,      Key_Keypad9,        Key_KeypadAdd,      XXX,
                             XXX, Key_Keypad4, Key_Keypad5,      Key_Keypad6,        Key_KeypadEnter,    XXX,
    XXX,                     XXX, Key_Keypad1, Key_Keypad2,      Key_Keypad3,        Key_KeypadDot,      XXX,
-   XXX,                     XXX, XXX,   Key_Keypad0,
+   ___,                     ___, XXX,   Key_Keypad0,
    XXX)
 
 	) // KEYMAPS(
@@ -364,9 +364,9 @@ void setup() {
   // We want to make sure that the firmware starts with LED effects off
   // This avoids over-taxing devices that don't have a lot of power to share
   // with USB devices
-  // LEDOff.activate();
+  LEDOff.activate();
 
-  LEDRainbowWaveEffect.activate();
+  // LEDRainbowWaveEffect.activate();
 
   MouseKeys.accelDelay = 100; // ms
 }
