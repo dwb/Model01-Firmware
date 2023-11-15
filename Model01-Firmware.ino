@@ -129,7 +129,7 @@ enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS, NUMPAD }; // layers
 KEYMAPS(
 
   [QWERTY] = KEYMAP_STACKED
-  (___,             Key_F1,        Key_F2,      Key_F3,        Key_F4, Key_F5, Key_LEDEffectNext,
+  (___,             Key_F1,        Key_F2,      Key_F3,        Key_F4, Key_F5, LGUI(Key_H),
    Key_Tab,         Key_Q,         Key_W,       Key_E,         Key_R,  Key_T,  Key_Tab,
    Key_PageUp,      Key_A,         Key_S,       Key_D,         Key_F,  Key_G,
    Key_PageDown,    Key_Z,         Key_X,       Key_C,         Key_V,  Key_B,  Key_Escape,
@@ -144,7 +144,7 @@ KEYMAPS(
    ShiftToLayer(OTHERCOMMON)),
 
   [NUMBERS] =  KEYMAP_STACKED
-  (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), LGUI(Key_H),
+  (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), Key_LEDEffectNext,
    Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          Key_Backtick,
    Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   ShiftToLayer(NUMPAD),
    Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
@@ -174,10 +174,10 @@ KEYMAPS(
    XXX),
 
   [FKEYS] =  KEYMAP_STACKED
-  (XXX,     XXX,      XXX,          XXX,     XXX,     XXX,     XXX,
-   XXX,     XXX,      Key_PageUp,   XXX,     XXX,     XXX,     XXX,
-   XXX,     Key_Home, Key_PageDown, Key_End, XXX,     XXX,
-   Key_F13, Key_F14,  Key_F15,      Key_F16, Key_F17, Key_F18, XXX,
+  (XXX,     XXX,      XXX,     XXX,     XXX,     XXX,     XXX,
+   XXX,     XXX,      XXX,     XXX,     XXX,     XXX,     XXX,
+   Key_F13, Key_F14,  Key_F15, Key_F16, Key_F17, Key_F18,
+   LGUI(Key_F13), LGUI(Key_F14),  LGUI(Key_F15), LGUI(Key_F16), LGUI(Key_F17), LGUI(Key_F18), XXX,
    ___, ___,      XXX,          ___,
    XXX,
 
@@ -185,7 +185,7 @@ KEYMAPS(
    XXX,                    Consumer_VolumeIncrement, Key_F7, Key_F8, Key_F9,     Key_F12, XXX,
                            Consumer_VolumeDecrement, Key_F4, Key_F5, Key_F6,     Key_F11, XXX,
    XXX,                    XXX,                      Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
-   ___,                         ___,   XXX,   Key_RightControl,
+   ___,                         ___,   HYPER(Key_Spacebar),   Key_RightControl,
    XXX),
 
   [NUMPAD] =  KEYMAP_STACKED
