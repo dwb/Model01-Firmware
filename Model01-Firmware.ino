@@ -14,16 +14,16 @@
 
 
 // The Kaleidoscope core
-#include "Kaleidoscope.h"
+#include <Kaleidoscope.h>
 
 // Support for keys that move the mouse
-#include "Kaleidoscope-MouseKeys.h"
+#include <Kaleidoscope-MouseKeys.h>
 
 // Support for macros
-#include "Kaleidoscope-Macros.h"
+#include <Kaleidoscope-Macros.h>
 
 // Support for controlling the keyboard's LEDs
-#include "Kaleidoscope-LEDControl.h"
+#include <Kaleidoscope-LEDControl.h>
 
 // Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
 // #include "Kaleidoscope-NumPad.h"
@@ -33,29 +33,29 @@
 
 // Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
 // when the keyboard is connected to a computer (or that computer is powered on)
-#include "Kaleidoscope-LEDEffect-BootGreeting.h"
+#include <Kaleidoscope-LEDEffect-BootGreeting.h>
 
 // Support for LED modes that set all LEDs to a single color
-/* #include "Kaleidoscope-LEDEffect-SolidColor.h" */
+/* #include <Kaleidoscope-LEDEffect-SolidColor.h> */
 
 // Support for an LED mode that makes all the LEDs 'breathe'
-/* #include "Kaleidoscope-LEDEffect-Breathe.h" */
+/* #include <Kaleidoscope-LEDEffect-Breathe.h> */
 
 // Support for an LED mode that makes a red pixel chase a blue pixel across the keyboard
-/* #include "Kaleidoscope-LEDEffect-Chase.h" */
+/* #include <Kaleidoscope-LEDEffect-Chase.h> */
 
 // Support for LED modes that pulse the keyboard's LED in a rainbow pattern
-#include "Kaleidoscope-LEDEffect-Rainbow.h"
+#include <Kaleidoscope-LEDEffect-Rainbow.h>
 
 // Support for an LED mode that lights up the keys as you press them
-/* #include "Kaleidoscope-LED-Stalker.h" */
+/* #include <Kaleidoscope-LED-Stalker.h> */
 
 // Support for an LED mode that prints the keys you press in letters 4px high
-/* #include "Kaleidoscope-LED-AlphaSquare.h" */
+/* #include <Kaleidoscope-LED-AlphaSquare.h> */
 
 // Support for Keyboardio's internal keyboard testing mode
 // Support for host power management (suspend & wakeup)
-#include "Kaleidoscope-HostPowerManagement.h"
+#include <Kaleidoscope-HostPowerManagement.h>
 
 
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
@@ -146,8 +146,8 @@ KEYMAPS(
   [NUMBERS] =  KEYMAP_STACKED
   (XXX,                      HYPER(Key_1),               HYPER(Key_2),           HYPER(Key_3),                  HYPER(Key_4),                   HYPER(Key_5), Key_LEDEffectNext,
    Consumer_VolumeIncrement, XXX,                        Key_PageUp,             XXX,                           Key_Enter,                      XXX,          Key_Backtick,
-   Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   ShiftToLayer(NUMPAD),
-   Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ___,
+   Consumer_VolumeDecrement, Key_Home,                   Key_PageDown,           Key_End,                       Key_Spacebar,                   XXX,
+   Consumer_PlaySlashPause,  Consumer_ScanPreviousTrack, Consumer_ScanNextTrack, LSHIFT(LGUI(Key_LeftBracket)), LSHIFT(LGUI(Key_RightBracket)), XXX, ShiftToLayer(NUMPAD),
    ___,                      ___,                        ___,                    ___,
    XXX,
 
@@ -169,22 +169,22 @@ KEYMAPS(
    Consumer_VolumeIncrement,                HYPER(Key_6),    HYPER(Key_7),     HYPER(Key_8),  HYPER(Key_9),   HYPER(Key_0),  XXX,
    Consumer_VolumeDecrement,                XXX,           Key_LeftBracket, Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
                              Key_LeftArrow, Key_DownArrow, Key_UpArrow,     Key_RightArrow,   XXX,           XXX,
-   Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           XXX,            XXX,
+   Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           XXX,            LGUI(LCTRL(Key_F)),
    ___,                                     ___,           Key_Enter,       ___,
    XXX),
 
   [FKEYS] =  KEYMAP_STACKED
   (XXX,     XXX,      XXX,     XXX,     XXX,     XXX,     XXX,
    XXX,     XXX,      XXX,     XXX,     XXX,     XXX,     XXX,
-   Key_F13, Key_F14,  Key_F15, Key_F16, Key_F17, Key_F18,
-   LGUI(Key_F13), LGUI(Key_F14),  LGUI(Key_F15), LGUI(Key_F16), LGUI(Key_F17), LGUI(Key_F18), XXX,
+   XXX, Key_F13, Key_F14,  Key_F15, Key_F16, Key_F17,
+   XXX, LGUI(Key_F13), LGUI(Key_F14),  LGUI(Key_F15), LGUI(Key_F16), LGUI(Key_F17), XXX,
    ___, ___,      XXX,          ___,
    XXX,
 
    M(MACRO_VERSION_INFO),  XXX, XXX, XXX, XXX,     XXX, XXX,
    XXX,                    Consumer_VolumeIncrement, Key_F7, Key_F8, Key_F9,     Key_F12, XXX,
                            Consumer_VolumeDecrement, Key_F4, Key_F5, Key_F6,     Key_F11, XXX,
-   XXX,                    XXX,                      Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
+   HYPER(Key_S),           HYPER(Key_L),             Key_F1, Key_F2, Key_F3,     Key_F10, XXX,
    ___,                         ___,   HYPER(Key_Spacebar),   Key_RightControl,
    XXX),
 
