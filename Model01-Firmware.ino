@@ -123,6 +123,9 @@ enum { QWERTY, NUMBERS, OTHERCOMMON, FKEYS, NUMPAD }; // layers
  */
 // *INDENT-OFF*
 
+// HYPER(Key_I) : Siri
+// HYPER(Key_S) : Search for UI element to click
+// HYPER(Key_L) : Scroll UI element
 
 // Keycodes list here:
 // https://github.com/keyboardio/Kaleidoscope/blob/master/src/kaleidoscope/key_defs/keyboard.h
@@ -169,7 +172,7 @@ KEYMAPS(
    Consumer_VolumeIncrement,                HYPER(Key_6),    HYPER(Key_7),     HYPER(Key_8),  HYPER(Key_9),   HYPER(Key_0),  XXX,
    Consumer_VolumeDecrement,                XXX,           Key_LeftBracket, Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
                              Key_LeftArrow, Key_DownArrow, Key_UpArrow,     Key_RightArrow,   XXX,           XXX,
-   Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           XXX,            LGUI(LCTRL(Key_F)),
+   Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           HYPER(Key_I),            LGUI(LCTRL(Key_F)),
    ___,                                     ___,           Key_Enter,       ___,
    XXX),
 
