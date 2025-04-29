@@ -57,6 +57,8 @@
 // Support for host power management (suspend & wakeup)
 #include <Kaleidoscope-HostPowerManagement.h>
 
+// For holding-backspace-is-CapsLock (to emulate Fn)
+#include <Kaleidoscope-Qukeys.h>
 
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
@@ -324,6 +326,9 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // and slowly moves the rainbow across your keyboard
   LEDRainbowWaveEffect,
 
+  // For holding-backspace-is-CapsLock (to emulate Apple Fn)
+  Qukeys,
+
   // The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
   // NumPad,
@@ -372,6 +377,16 @@ void setup() {
   // LEDRainbowWaveEffect.activate();
 
   MouseKeys.accelDelay = 100; // ms
+
+  // very annoying
+  Qukeys.setMaxIntervalForTapRepeat(0);
+
+  QUKEYS(
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 7), Key_CapsLock),
+    kaleidoscope::plugin::Qukey(1, KeyAddr(1, 7), Key_CapsLock),
+    kaleidoscope::plugin::Qukey(2, KeyAddr(1, 7), Key_CapsLock),
+    kaleidoscope::plugin::Qukey(3, KeyAddr(1, 7), Key_CapsLock),
+  );
 }
 
 /** loop is the second of the standard Arduino sketch functions.
