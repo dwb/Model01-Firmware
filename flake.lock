@@ -1,0 +1,57 @@
+{
+  "nodes": {
+    "arduino-index": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1746403289,
+        "narHash": "sha256-9MABAdhDLfPTb4+e5/IZhf8Dgzg04LDWX6O2IAwdUhg=",
+        "owner": "bouk",
+        "repo": "arduino-indexes",
+        "rev": "34ff94492f94bddce8edb0093fd743e2781c545c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bouk",
+        "repo": "arduino-indexes",
+        "type": "github"
+      }
+    },
+    "arduino-nix": {
+      "locked": {
+        "lastModified": 1735332078,
+        "narHash": "sha256-PGZVUTg8BQKL1QgTr3Fcia8RBYYqsbHbx9lIunqdmxQ=",
+        "owner": "bouk",
+        "repo": "arduino-nix",
+        "rev": "dd6c6f4de7d8d8bb460508de911c120dfc35b709",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bouk",
+        "repo": "arduino-nix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1745247553,
+        "narHash": "sha256-AIjD2iMgfnTmCOCrnTG0D3esMJScDV83a+w7D32VNAw=",
+        "path": "/nix/store/wc99cgrq65394h15nxpdbzmn59yncp5z-source",
+        "rev": "a7ab49eb577a2c70cd97aa6ab846706cedcdea5f",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "arduino-index": "arduino-index",
+        "arduino-nix": "arduino-nix",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
