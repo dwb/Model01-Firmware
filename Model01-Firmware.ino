@@ -60,6 +60,10 @@
 // For holding-backspace-is-CapsLock (to emulate Fn)
 #include <Kaleidoscope-Qukeys.h>
 
+// this doesn't work yet :(
+// #define Key_Apple_Fn CONSUMER_KEY(0x029D, HID_TYPE_OOC)
+
+
 /** This 'enum' is a list of all the macros used by the Model 01's firmware
   * The names aren't particularly important. What is important is that each
   * is unique.
