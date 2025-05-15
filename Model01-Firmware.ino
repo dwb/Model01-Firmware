@@ -175,8 +175,8 @@ KEYMAPS(
    ___, Key_Delete,      ___,          ___,
    ShiftToLayer(FKEYS),
 
-   Consumer_VolumeIncrement,                HYPER(Key_6),    HYPER(Key_7),     HYPER(Key_8),  HYPER(Key_9),   HYPER(Key_0),  XXX,
-   Consumer_VolumeDecrement,                XXX,           Key_LeftBracket, Key_RightBracket, Key_LeftParen, Key_RightParen, XXX,
+   Consumer_VolumeIncrement,                HYPER(Key_6),    HYPER(Key_7),     HYPER(Key_8),     HYPER(Key_9),  HYPER(Key_0),   XXX,
+   Consumer_VolumeDecrement,                HYPER(Key_Y),    Key_LeftBracket,  Key_RightBracket, Key_LeftParen, Key_RightParen, HYPER(Key_Minus),
                              Key_LeftArrow, Key_DownArrow, Key_UpArrow,     Key_RightArrow,   XXX,           XXX,
    Consumer_PlaySlashPause,                 ___,           LSHIFT(Key_9),   LSHIFT(Key_0),    XXX,           HYPER(Key_I),            LGUI(LCTRL(Key_F)),
    ___,                                     ___,           Key_Enter,       ___,
